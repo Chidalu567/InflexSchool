@@ -1,0 +1,11 @@
+{
+  "name": "inflexschoolback",
+  "version": "1.0.0",
+  "description": "Inflexschool backend application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "chidalu okechukwu",
+  "license": "ISC"
+}
