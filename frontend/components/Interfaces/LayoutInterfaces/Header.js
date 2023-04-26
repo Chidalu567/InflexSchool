@@ -2,24 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGear } from "@fortawesome/free-solid-svg-icons";
-
-const PageHeader = () => {
-  return (
-    <PageNav>
-      <ClassButton>CLASSES</ClassButton>
-      <PageTitle>INFLEX SCHOOL</PageTitle>
-      <Date>18/04/2023</Date>
-      <Settings>
-        <FontAwesomeIcon
-          icon={faGear}
-          style={{ color: "white", width: "53px", height: "52.66px" }}
-        />
-      </Settings>
-    </PageNav>
-  );
-};
-
-export default PageHeader;
+import { Dropdown } from "antd";
 
 // Header  UI components
 const PageNav = styled.nav`
@@ -49,7 +32,7 @@ const ClassButton = styled.button`
   font-weight: bold;
   line-height: 30px;
   color: white;
-  margin-left: 100px;
+  margin-left: 50px;
   filter: drop-shadow(-1px -1px 4px rgba(0, 0, 0, 0.25))
     drop-shadow(-3px -3px 7px rgba(255, 255, 255, 0.25))
     drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25))
@@ -85,3 +68,69 @@ const Settings = styled.div`
     drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25))
     drop-shadow(8px 8px 7px rgba(0, 0, 0, 0.4));
 `;
+
+// Application component
+const PageHeader = () => {
+  // Available classes
+  const ClassItems = [
+    {
+      label: "Year 6",
+      key: "6",
+    },
+    {
+      label: "Year 7",
+      key: "7",
+    },
+  ];
+
+  // Available Settings Items
+  const SettingItems = [
+    {
+      label: "HOME",
+      key: "1",
+    },
+    {
+      label: "RESTRICT THURSDAY",
+      key: "2",
+    },
+    {
+      label: "DOWNLOAD RECORDS",
+      key: "3",
+    },
+    {
+      label: "REGISTRATION",
+      key: "4",
+    },
+    {
+      label: "UNRESTRICT",
+      key: "5",
+    },
+    {
+      label: "ABOUT",
+      key: "6",
+    },
+  ];
+
+  return (
+    <PageNav>
+      <Dropdown menu={{ items: ClassItems }}>
+        <ClassButton>CLASSES</ClassButton>
+      </Dropdown>
+
+      <PageTitle>INFLEX SCHOOL</PageTitle>
+
+      <Date>18/04/2023</Date>
+
+      <Dropdown menu={{ items: SettingItems }}>
+        <Settings>
+          <FontAwesomeIcon
+            icon={faGear}
+            style={{ color: "white", width: "53px", height: "52.66px" }}
+          />
+        </Settings>
+      </Dropdown>
+    </PageNav>
+  );
+};
+
+export default PageHeader;

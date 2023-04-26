@@ -1,18 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-const PageFooter = () => {
-  return (
-    <Footer>
-      <Copyright>COPYRIGHT © 2023</Copyright>
-      <Signout>SIGNOUT</Signout>
-      <Save>SAVE</Save>
-    </Footer>
-  );
-};
-
-export default PageFooter;
-
 // Footer UI components
 const Footer = styled.div`
   background-color: #342f2f;
@@ -46,7 +34,6 @@ const Signout = styled.button`
   font-style: normal;
   line-height: 30px;
   color: white;
-  margin-right: -1200px;
 `;
 
 const Save = styled.button`
@@ -69,4 +56,20 @@ const Save = styled.button`
   line-height: 30px;
   color: white;
   margin-right: 40px;
+  margin-left: 40px;
 `;
+
+// Application component
+const PageFooter = () => {
+  return (
+    <Footer>
+      <Copyright>COPYRIGHT © 2023</Copyright>
+      <div>
+        <Signout>SIGNOUT</Signout>
+        <Save>SAVE</Save>
+      </div>
+    </Footer>
+  );
+};
+
+export default PageFooter;
