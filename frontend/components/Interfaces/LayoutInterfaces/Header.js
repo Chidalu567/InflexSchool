@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGear } from "@fortawesome/free-solid-svg-icons";
+import { faGear, faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { Dropdown } from "antd";
+import { useDispatch } from "react-redux";
+import { UnRestrict_Action, Restrict_Action } from "@/Redux/Reducers/Restrict";
 
-// Header  UI components
+// ---------------------------------------------- Header  UI components --------------------------
 const PageNav = styled.nav`
   background-color: #342f2f;
   width: 100%;
@@ -69,8 +71,12 @@ const Settings = styled.div`
     drop-shadow(8px 8px 7px rgba(0, 0, 0, 0.4));
 `;
 
-// Application component
+// ---------------------------------------Application component-------------------------------------
+
 const PageHeader = () => {
+  // redux dispatch for dispatching action
+  const dispatch = useDispatch();
+
   // Available classes
   const ClassItems = [
     {
@@ -90,7 +96,7 @@ const PageHeader = () => {
       key: "1",
     },
     {
-      label: "RESTRICT THURSDAY",
+      label: "RESTRICT",
       key: "2",
     },
     {
@@ -111,8 +117,20 @@ const PageHeader = () => {
     },
   ];
 
+  // Function to handle click event on header settings menu items
+  const onClickMenuItems = ({ key }) => {
+    if (key == 2) {
+      dispatch(Restrict_Action("RESTRICTED"));
+    }
+
+    if (key == 5) {
+      dispatch(UnRestrict_Action("ALLOWED"));
+    }
+  };
+
   return (
     <PageNav>
+      {/* DropDown for classes */}
       <Dropdown menu={{ items: ClassItems }}>
         <ClassButton>CLASSES</ClassButton>
       </Dropdown>
@@ -121,7 +139,8 @@ const PageHeader = () => {
 
       <Date>18/04/2023</Date>
 
-      <Dropdown menu={{ items: SettingItems }}>
+      {/* Dropdown for settings */}
+      <Dropdown menu={{ items: SettingItems, onClick: onClickMenuItems }}>
         <Settings>
           <FontAwesomeIcon
             icon={faGear}

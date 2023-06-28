@@ -1,3 +1,16 @@
 {
-  "extends": ["next/babel","next/core-web-vitals"]
+  "extends": ["next/babel","next/core-web-vitals","eslint:recommended"],
+  "parserOptions":{
+    "ecmaVersion": 6
+  },
+  "env":{
+    "node":true,
+    "jest":true,
+    "es6":true
+  },
+  "rules":{
+    "semi":"warn",
+    "quotes":["warn","single"],
+    "eqeqeq":"warn"
+  }
 }

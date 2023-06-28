@@ -19,6 +19,11 @@ const HomePage = () => {
       label: "Year 7",
       children: <DataTable itemKey={7} />,
     },
+    {
+      key: "8",
+      label: "Year 8",
+      children: <DataTable itemKey={8} />,
+    },
   ];
 
   return (

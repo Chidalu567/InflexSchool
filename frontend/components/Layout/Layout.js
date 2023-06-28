@@ -14,7 +14,7 @@ export const Layout = ({ children }) => {
           content="School Management Application for E-records"
         />
         <meta name="author" content="Chidalu Okechukwu" />
-        <meta httpEquiv="refresh" content="60" />
+        {/* <meta httpEquiv="refresh" content="60" /> */}
       </Head>
 
       {/* Page header component */}
