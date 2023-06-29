@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Modal, Button } from "antd";
 import { useState } from "react";
@@ -67,20 +67,12 @@ const Save = styled.button`
 
 const ModalText = styled.h4``;
 const ModalContainer = styled.div`
-  background: var(
-    --created-blue,
-    linear-gradient(0deg, #0029ff 0%, #0029ff 100%),
-    #fff
-  );
-  color: #fff;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  flex-shrink: 0;
-  font-size: 20px;
-  font-family: Inter;
-  word-spacing: 8em;
-  padding: 20px;
+  word-spacing: 7em;
+  align-content: space-between;
+  line-height: 2.5em;
 `;
 
 const ModalIcon = styled.div``;
@@ -103,6 +95,12 @@ const PageFooter = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isStaffgrantOpen, setIsStaffgrantOpen] = useState(false);
 
+  // Time Functionality
+  const currentTime = new Date();
+  const hours = currentTime.getHours();
+  const minutes = currentTime.getMinutes();
+  const seconds = currentTime.getSeconds();
+
   // Function to handle signout action
   const showModal = () => {
     setIsModalOpen(true);
@@ -122,7 +120,10 @@ const PageFooter = () => {
     setIsStaffgrantOpen(false);
     setIsModalOpen(true);
   };
+
   // Function to handle save action
+  function save() {}
+
   return (
     <Footer>
       <Copyright>COPYRIGHT © 2023</Copyright>
@@ -142,8 +143,12 @@ const PageFooter = () => {
           <ModalContainer>
             <ModalText>Name: Fortune</ModalText>
             <ModalText>Class: year12</ModalText>
-            <ModalText>SignedIn: -------</ModalText>
-            <ModalText>SignedOut: -------</ModalText>
+            <ModalText>
+              SignedIn: {hours}:{minutes}:{seconds}
+            </ModalText>
+            <ModalText>
+              SignedOut: {hours}:{minutes}:{seconds}
+            </ModalText>
           </ModalContainer>
         </Modal>
       ) : isStaffgrantOpen === false ? (
