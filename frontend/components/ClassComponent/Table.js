@@ -72,7 +72,7 @@ export const DataTable = (param) => {
     if (classYear.itemKey == 7) {
       tableDatas.push({
         key: `${i}`,
-        name: "Ebuka Okechukwu",
+        name: "Student 1",
         class: "YEAR 12",
         signedIn: "10AM 17/02/2023",
         signedOut: "3PM 17/02/2023",
@@ -81,7 +81,7 @@ export const DataTable = (param) => {
     } else if (classYear.itemKey == 8) {
       tableDatas.push({
         key: `${i}`,
-        name: "Justice Okechukwu",
+        name: "Student 2",
         class: "YEAR 12",
         signedIn: "10AM 17/02/2023",
         signedOut: "3PM 17/02/2023",
@@ -90,7 +90,7 @@ export const DataTable = (param) => {
     } else {
       tableDatas.push({
         key: `${i}`,
-        name: "Chidalu Okechukwu",
+        name: "Student 3",
         class: "YEAR 12",
         signedIn: "10AM 17/02/2023",
         signedOut: "3PM 17/02/2023",
