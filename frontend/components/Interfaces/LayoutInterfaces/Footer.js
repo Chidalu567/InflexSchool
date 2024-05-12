@@ -141,7 +141,7 @@ const PageFooter = () => {
           width={497}
         >
           <ModalContainer>
-            <ModalText>Name: Fortune</ModalText>
+            <ModalText>Name: Student test</ModalText>
             <ModalText>Class: year12</ModalText>
             <ModalText>
               SignedIn: {hours}:{minutes}:{seconds}
